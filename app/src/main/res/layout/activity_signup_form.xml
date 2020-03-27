@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".SignUp">
+
+
+    <EditText
+        android:id="@+id/eFullname"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Full Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084" />
+
+    <EditText
+        android:id="@+id/eUsername"
+        android:layout_width="345dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="User name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eFullname"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <EditText
+        android:id="@+id/eEmail"
+        android:layout_width="345dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint = "Email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eUsername"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <EditText
+        android:id="@+id/ePassword"
+        android:layout_width="345dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eEmail"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <EditText
+        android:id="@+id/eConfirmPass"
+        android:layout_width="345dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Confirm Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ePassword"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="83dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="30dp"
+        android:hint="Gender: "
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eConfirmPass"
+        app:layout_constraintVertical_bias="0.08" />
+
+    <RadioButton
+        android:id="@+id/radiobtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="220dp"
+        android:hint="Male"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eConfirmPass"
+        app:layout_constraintVertical_bias="0.297" />
+
+    <RadioButton
+        android:id="@+id/radiobtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Female"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintStart_toEndOf="@+id/radiobtn"
+        app:layout_constraintTop_toBottomOf="@+id/eConfirmPass"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <Button
+        android:id="@+id/registerbtn"
+        android:layout_width="347dp"
+        android:layout_height="55dp"
+        android:textSize="18dp"
+        android:text="Register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eConfirmPass"
+        app:layout_constraintVertical_bias="0.302"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_rounded"/>
+
+    <RadioGroup
+        android:layout_width="7dp"
+        android:layout_height="22dp"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="427dp" />
+
+    <TextView
+        android:id="@+id/txt-alreadyexist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already Signed in? Login Here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerbtn"
+        android:onClick="onClick"
+        android:clickable="true"
+        app:layout_constraintVertical_bias="0.134" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
