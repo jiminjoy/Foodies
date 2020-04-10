@@ -25,6 +25,7 @@ public class Home extends AppCompatActivity {
 
     EditText Name ;
     EditText Password;
+
     TextView Info;
     Button Login;
 
