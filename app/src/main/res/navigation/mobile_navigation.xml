@@ -24,6 +24,12 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
+        android:id="@+id/navigation_map"
+        android:name="com.example.foodies.ui.map.MapFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_map" />
+
+    <fragment
         android:id="@+id/navigation_signup"
         android:name="com.example.foodies.ui.notifications.NotificationsFragment"
         android:label="Signup"
