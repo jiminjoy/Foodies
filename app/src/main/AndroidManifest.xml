@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBEcr_XI0Yl-RuRa3yvLvIgmKipXWwJbm0"/>
+
         <activity android:name=".Home"
             android:label="Home"/>
         <activity android:name=".Login_Form"
@@ -28,5 +33,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
 
 </manifest>
