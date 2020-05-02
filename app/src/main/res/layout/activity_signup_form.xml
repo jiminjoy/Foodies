@@ -28,7 +28,7 @@
         android:layout_height="45dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="User name"
+        android:hint="User Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
         android:id="@+id/radiobtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="240dp"
         android:hint="Male"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,13 +106,14 @@
         android:id="@+id/radiobtn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="240dp"
         android:hint="Female"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toEndOf="@+id/radiobtn"
         app:layout_constraintTop_toBottomOf="@+id/eConfirmPass"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.297" />
 
     <Button
         android:id="@+id/registerbtn"
@@ -139,7 +140,7 @@
         android:id="@+id/txt-alreadyexist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already Signed in? Login Here"
+        android:text="Already Signed Up? Login Here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

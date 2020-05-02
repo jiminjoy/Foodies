@@ -77,7 +77,7 @@ public class SignUp extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
                                 task.getException().printStackTrace();
-                                Toast.makeText(SignUp.this,"Signup unsuccessful, Please Try Again " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUp.this,"Signup unsuccessful, Please Try Again: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 Log.d("checking,", task.getException().getMessage());
                             } else {
                                 startActivity(new Intent(SignUp.this, Home.class));
@@ -113,7 +113,7 @@ public class SignUp extends AppCompatActivity {
                     Log.d("checking", "where?");
                 }
                 else if(!password.equals(confirmPass)){
-                    Toast.makeText(SignUp.this,"Password Not matching",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this,"Passwords Don't Match",Toast.LENGTH_SHORT).show();
                     temp=false;
                     Log.d("checking", "goes here?");
                 }
@@ -146,10 +146,10 @@ public class SignUp extends AppCompatActivity {
 
     public void  updateUI(FirebaseUser account){
         if(account != null){
-            Toast.makeText(this,"U Signed In successfully",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"You signed in successfully",Toast.LENGTH_LONG).show();
             startActivity(new Intent(this,Home.class));
         }else {
-            Toast.makeText(this,"U Didnt signed in", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"You didn't sign in", Toast.LENGTH_LONG).show();
         }
     }
 

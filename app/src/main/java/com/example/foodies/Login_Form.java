@@ -59,7 +59,7 @@ public class Login_Form extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(!task.isSuccessful()){
-                        Toast.makeText(Login_Form.this,"Login unsuccessful, Please Try Again " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login_Form.this,"Login unsuccessful, please try again: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                     else {
                         startActivity(new Intent(Login_Form.this, Home.class));
