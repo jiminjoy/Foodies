@@ -29,6 +29,9 @@
         <activity android:name=".Forgot_Password"
             android:label="FORGOT PASSWORD"/>
         <activity
+            android:name=".MapsActivity"
+            android:label="Map"/>
+        <activity
             android:name=".SignUp"
             android:label="SignUp">
             <intent-filter>
