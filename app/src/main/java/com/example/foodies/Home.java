@@ -87,7 +87,7 @@ public class Home extends AppCompatActivity {
 
         if (item.getItemId() == R.id.menuLogout) {
             FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(this, SignUp.class);
+            Intent intent = new Intent(this, Login_Form.class);
 //            sharedpreferences.edit().remove(MainActivity.usernameKey).apply();
             startActivity(intent);
             return true;
