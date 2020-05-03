@@ -62,7 +62,25 @@
             android:onClick="onClick"
             android:src="@mipmap/restaurant"
             android:layout_toLeftOf="@id/return_back" />
-<!--            android:layout_centerHorizontal="true"-->
+
+        <ImageButton
+        android:id="@+id/bar_nearby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClick"
+        android:src="@mipmap/bar"
+        android:layout_toLeftOf="@id/cafe_nearby" />
+
+        <ImageButton
+            android:id="@+id/cafe_nearby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:onClick="onClick"
+            android:src="@mipmap/cafe"
+            android:layout_toLeftOf="@id/restaurants_nearby" />
+
 
         <ImageButton
             android:id="@+id/return_back"
