@@ -103,8 +103,6 @@ public class Home extends AppCompatActivity {
     public void goToMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
-
-
     }
 
 }
