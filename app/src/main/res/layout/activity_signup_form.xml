@@ -93,22 +93,20 @@
         android:id="@+id/radiobtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="240dp"
+        android:layout_marginEnd="172dp"
+        android:layout_marginRight="172dp"
         android:hint="Male"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/registerbtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eConfirmPass"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintVertical_bias="0.296" />
 
     <RadioButton
         android:id="@+id/radiobtn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="240dp"
         android:hint="Female"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/registerbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toEndOf="@+id/radiobtn"
@@ -129,12 +127,6 @@
         app:layout_constraintVertical_bias="0.302"
         android:layout_marginTop="40dp"
         android:background="@drawable/button_rounded"/>
-
-    <RadioGroup
-        android:layout_width="7dp"
-        android:layout_height="22dp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="427dp" />
 
     <TextView
         android:id="@+id/txt-alreadyexist"

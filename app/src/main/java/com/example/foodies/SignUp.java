@@ -3,6 +3,7 @@ package com.example.foodies;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -149,6 +150,23 @@ public class SignUp extends AppCompatActivity {
         }else {
             Toast.makeText(this,"You didn't sign in", Toast.LENGTH_LONG).show();
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        if (item.getItemId() == R.id.menuLogout) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(this, SignUp.class);
+//            sharedpreferences.edit().remove(MainActivity.usernameKey).apply();
+            startActivity(intent);
+            return true;
+
+        }
+
+        return false;
+
+
     }
 
 
