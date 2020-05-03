@@ -17,6 +17,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -28,6 +31,7 @@ public class Home extends AppCompatActivity {
     EditText Password;
     TextView Info;
     Button Login;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +77,8 @@ public class Home extends AppCompatActivity {
         super.onOptionsItemSelected(item);
 
         if (item.getItemId() == R.id.menuLogout) {
-            Intent intent = new Intent(this, Login_Form.class);
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(this, SignUp.class);
 //            sharedpreferences.edit().remove(MainActivity.usernameKey).apply();
             startActivity(intent);
             return true;
