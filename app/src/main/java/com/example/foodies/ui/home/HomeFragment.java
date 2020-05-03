@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
 
         SliderItem itemSix = new SliderItem();
         itemSix.setImageUrl("https://i.imgur.com/W2PQrRD.jpg");
-        itemSix.setDescription("BelAir Cantina");
+        itemSix.setDescription("Ian's Pizza");
 
         sliderItemList.add(itemSix);
 

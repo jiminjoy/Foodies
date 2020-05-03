@@ -23,13 +23,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical">
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profilePic"
                 android:layout_width="131dp"
                 android:layout_height="131dp"
                 android:layout_marginTop="28dp"
                 android:layout_gravity="center_horizontal"
                 app:srcCompat="@mipmap/defaultprofile"
+                android:src="@mipmap/defaultprofile"
                 />
 
             <TextView

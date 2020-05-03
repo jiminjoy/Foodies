@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/editProfilePic"
                 android:layout_width="102dp"
                 android:layout_height="105dp"
@@ -27,7 +27,8 @@
                 app:layout_constraintHorizontal_bias="0.103"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/defaultprofile" />
+                app:srcCompat="@mipmap/defaultprofile"
+                android:src="@mipmap/defaultprofile"/>
 
             <Button
                 android:id="@+id/registerbtn2"
