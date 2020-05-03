@@ -135,8 +135,6 @@ public class SignUp extends AppCompatActivity {
 
     public void onClick(View v) {
         goToActivity2();
-
-
     }
 
     public void goToActivity2(){
