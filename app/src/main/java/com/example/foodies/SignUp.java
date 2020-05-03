@@ -89,7 +89,7 @@ public class SignUp extends AppCompatActivity {
                                 Log.d("checking,", task.getException().getMessage());
                             } else {
                                 final String uid = task.getResult().getUser().getUid();
-                                FoodiesUser foodiesUser = new FoodiesUser("", email, Male.isEnabled() ? "Male" : "Female", "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png", name, new ArrayList<String>());
+                                FoodiesUser foodiesUser = new FoodiesUser("", email, Male.isEnabled() ? "Male" : "Female", "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png", "Madison, WI", name, new ArrayList<String>());
 
                                 db.collection("users").document(uid).set(foodiesUser).addOnFailureListener(new OnFailureListener() {
                                     @Override

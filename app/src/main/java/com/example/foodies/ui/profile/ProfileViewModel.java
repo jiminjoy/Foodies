@@ -3,9 +3,13 @@ package com.example.foodies.ui.profile;
 import androidx.lifecycle.ViewModel;
 
 public class ProfileViewModel extends ViewModel {
-    /*private MutableLiveData<String> mText;
+    /*
+    private String uid;
 
-    public ProfileViewModel() {
+    private MutableLiveData<String> mText;
+
+    public ProfileViewModel(String uid) {
+        this.uid = uid;
         mText = new MutableLiveData<>();
         mText.setValue("This is profile fragment");
     }

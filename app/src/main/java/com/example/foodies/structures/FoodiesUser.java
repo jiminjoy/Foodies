@@ -8,20 +8,21 @@ public class FoodiesUser {
     private String email;
     private String gender;
     private String imageUrl;
+    private String location;
     private String name;
     private List<String> preferences;
 
-    public FoodiesUser(String bio, String email, String gender, String imageUrl, String name, List<String> preferences) {
+    public FoodiesUser(String bio, String email, String gender, String imageUrl, String location, String name, List<String> preferences) {
         this.bio = bio;
         this.email = email;
         this.gender = gender;
         this.imageUrl = imageUrl;
         this.name = name;
+        this.location = location;
         this.preferences = preferences;
     }
 
     public FoodiesUser() {}
-
 
     public String getBio() {
         return bio;
@@ -45,5 +46,9 @@ public class FoodiesUser {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getLocation() {
+        return location;
     }
 }

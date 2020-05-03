@@ -10,12 +10,21 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.foodies.R;
+import com.example.foodies.structures.FoodiesUser;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public static ProfileFragment newInstance() {
         return new ProfileFragment();
@@ -25,9 +34,43 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        String uid;
+        if (getArguments() == null) {
+            uid = mAuth.getCurrentUser().getUid();
+        } else {
+            uid = getArguments().getString("uid");
+            if (uid == null) {
+                uid = mAuth.getCurrentUser().getUid();
+            }
+        }
+
+        final View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        DocumentReference docRef = db.collection("users").document(uid);
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                FoodiesUser foodiesUser = documentSnapshot.toObject(FoodiesUser.class);
+                if (foodiesUser != null) {
+                    TextView name = root.findViewById(R.id.textView3);
+                    if (foodiesUser.getName() == null || foodiesUser.getName().isEmpty()) {
+                        name.setText("Unknown");
+                    } else {
+                        name.setText(foodiesUser.getName());
+                    }
+
+                    TextView location = root.findViewById(R.id.textView9);
+                    if (foodiesUser.getName() == null || foodiesUser.getName().isEmpty()) {
+                        location.setText("Madison, WI");
+                    } else {
+                        location.setText(foodiesUser.getName());
+                    }
+                }
+            }
+        });
+
         profileViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
         /*final TextView textView = root.findViewById(R.id.text_notifications);
         profileViewModel.getText().observe(this, new Observer<String>() {
             @Override
