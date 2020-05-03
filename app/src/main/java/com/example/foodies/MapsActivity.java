@@ -67,6 +67,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onClick(View v)
     {
         String restaurant = "restaurant";
+        String bar = "bar";
+        String cafe = "cafe";
         Object transferData[] = new Object[2];
         GetNearbyPlaces getNearbyRestaurant = new GetNearbyPlaces();
 
@@ -127,6 +129,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 getNearbyRestaurant.execute(transferData);
                 Toast.makeText(this, "Searching for Nearby Restaurants...", Toast.LENGTH_SHORT).show();
                 Toast.makeText(this, "Showing Nearby Restaurants...", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.bar_nearby:
+                mMap.clear();
+                String url1 = getUrl(latitide, longitude, bar);
+                transferData[0] = mMap;
+                transferData[1] = url1;
+
+                getNearbyRestaurant.execute(transferData);
+                Toast.makeText(this, "Searching for Nearby Bars...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Showing Nearby Bars...", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.cafe_nearby:
+                mMap.clear();
+                String url2 = getUrl(latitide, longitude, cafe);
+                transferData[0] = mMap;
+                transferData[1] = url2;
+
+                getNearbyRestaurant.execute(transferData);
+                Toast.makeText(this, "Searching for Nearby Cafes...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Showing Nearby Cafes...", Toast.LENGTH_SHORT).show();
                 break;
 
         }
