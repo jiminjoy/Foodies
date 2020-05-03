@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,19 +11,19 @@
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
         app:cardCornerRadius="6dp"
 
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent">
+        >
 
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/imageSlider"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:layout_below="@+id/featuredText"
+            android:layout_centerHorizontal="true"
             app:sliderAnimationDuration="600"
             app:sliderAutoCycleDirection="back_and_forth"
             app:sliderAutoCycleEnabled="true"
@@ -44,32 +44,27 @@
         android:id="@+id/registerbtn3"
         android:layout_width="215dp"
         android:layout_height="57dp"
+        android:layout_below="@id/imageCard"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:background="@drawable/button_white"
         android:fontFamily="@font/brandontextbold"
         android:onClick="goToMap"
         android:text="FIND RESTAURANTS"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageCard" />
+        android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/featuredText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
         android:layout_marginBottom="12dp"
         android:fontFamily="@font/brandontextbold"
         android:text="Featured Restaurants"
-        android:textSize="20dp"
         android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/imageCard"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="20dp" />
 
 
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

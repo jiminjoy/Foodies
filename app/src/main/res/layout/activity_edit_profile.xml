@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/editProfilePic"
                 android:layout_width="102dp"
                 android:layout_height="105dp"
                 android:layout_marginTop="32dp"
@@ -38,13 +38,14 @@
                 android:text="UPLOAD PROFILE PIC"
                 android:textSize="18dp"
                 android:fontFamily="@font/brandontextbold"
+                android:onClick="editProfilePicker"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.437"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/editProfilePic"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/eFullname"
+                android:id="@+id/eFullnameEdit"
                 android:layout_width="346dp"
                 android:layout_height="46dp"
                 android:ems="10"
@@ -52,13 +53,13 @@
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintHorizontal_bias="0.415"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText3"
-                app:layout_constraintVertical_bias="0.03" />
+                app:layout_constraintVertical_bias="0.178" />
 
             <EditText
-                android:id="@+id/eEmail"
+                android:id="@+id/eEmailEdit"
                 android:layout_width="345dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
@@ -68,39 +69,39 @@
                 android:inputType="textEmailAddress"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.393"
+                app:layout_constraintHorizontal_bias="0.409"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eFullname"
+                app:layout_constraintTop_toBottomOf="@+id/eFullnameEdit"
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
-                android:id="@+id/ePassword"
+                android:id="@+id/ePasswordEdit"
                 android:layout_width="345dp"
                 android:layout_height="45dp"
                 android:layout_marginBottom="228dp"
                 android:ems="10"
                 android:hint="Password"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.393"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eEmail"
+                app:layout_constraintTop_toBottomOf="@+id/eEmailEdit"
                 app:layout_constraintVertical_bias="0.631" />
 
             <EditText
-                android:id="@+id/eConfirmPass"
+                android:id="@+id/eConfirmPassEdit"
                 android:layout_width="345dp"
                 android:layout_height="45dp"
                 android:layout_marginBottom="164dp"
                 android:ems="10"
                 android:hint="Confirm Password"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.378"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ePassword"
+                app:layout_constraintTop_toBottomOf="@+id/ePasswordEdit"
                 app:layout_constraintVertical_bias="0.555" />
 
             <TextView
@@ -117,41 +118,32 @@
                 app:layout_constraintHorizontal_bias="0.006"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <RadioButton
-                android:id="@+id/radiobtn"
+            <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="112dp"
-                android:hint="Male"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.182"
-                app:layout_constraintStart_toEndOf="@+id/gender" />
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toEndOf="@+id/gender"
+                app:layout_constraintTop_toBottomOf="@+id/eConfirmPass">
 
-            <RadioButton
-                android:id="@+id/radiobtn2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="112dp"
-                android:hint="Female"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.339"
-                app:layout_constraintStart_toEndOf="@+id/radiobtn" />
+            </RadioGroup>
 
             <Button
                 android:id="@+id/registerbtn"
                 android:layout_width="347dp"
                 android:layout_height="55dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/button_rounded"
+                android:fontFamily="@font/brandontextbold"
                 android:text="Save Profile"
                 android:textSize="18dp"
-                android:fontFamily="@font/brandontextbold"
+                android:onClick="onSave"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.468"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.453"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gender"
+                app:layout_constraintVertical_bias="0.918" />
 
             <EditText
                 android:id="@+id/editText2"
@@ -161,6 +153,7 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
+                android:hint="Bio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.406"
                 app:layout_constraintStart_toStartOf="parent"
@@ -175,7 +168,7 @@
                 android:layout_marginTop="12dp"
                 android:text="Bio"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/editProfilePic" />
 
             <EditText
                 android:id="@+id/editText3"
@@ -202,6 +195,43 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText2"
                 app:layout_constraintVertical_bias="0.846" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="349dp"
+                android:layout_height="58dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Location"
+                app:layout_constraintBottom_toTopOf="@+id/eFullname"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.431"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+            <RadioGroup
+                android:layout_width="138dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/registerbtn"
+                app:layout_constraintStart_toEndOf="@+id/gender"
+                app:layout_constraintTop_toBottomOf="@+id/eConfirmPass"
+                app:layout_constraintVertical_bias="0.52">
+
+                <RadioButton
+                    android:id="@+id/radiobtnedit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Female" />
+
+                <RadioButton
+                    android:id="@+id/radiobtn2edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Male" />
+            </RadioGroup>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

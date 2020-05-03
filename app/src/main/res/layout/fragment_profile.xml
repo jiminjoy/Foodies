@@ -1,140 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="107dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:fontFamily="@font/brandontextregular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="95dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:text="Gender"
-        android:textSize="20dp"
-        android:fontFamily="@font/brandontextbold"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toStartOf="@+id/textView12"
-        app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="27dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/profilePic"
+                android:layout_width="131dp"
+                android:layout_height="131dp"
+                android:layout_marginTop="28dp"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@mipmap/defaultprofile"
+                />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="131dp"
-        android:layout_height="131dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/defaultprofile" />
+            <TextView
+                android:id="@+id/nameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/profilePic"
+                android:fontFamily="@font/brandontextbold"
+                android:layout_gravity="center_horizontal"
+                android:text="Name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30dp" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Name"
-        android:fontFamily="@font/brandontextbold"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="323dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:fontFamily="@font/brandontextregular"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+            <LinearLayout
+                android:id="@+id/locationLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="95dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="20dp"
-        android:text="Location"
-        android:textSize="20dp"
-        android:fontFamily="@font/brandontextbold"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                <TextView
+                    android:id="@+id/locationText"
+                    android:layout_width="95dp"
+                    android:layout_height="45dp"
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="12dp"
-        android:text="Bio"
-        android:textSize="16dp"
-        android:fontFamily="@font/brandontextbold"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="107dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="20dp"
-        android:fontFamily="@font/brandontextregular"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/brandontextbold"
+                    android:text="Location"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="16dp"
-        android:text="Preferences"
-        android:textSize="16dp"
-        android:fontFamily="@font/brandontextbold"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                <TextView
+                    android:id="@+id/locationField"
+                    android:layout_width="107dp"
+                    android:layout_height="45dp"
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="323dp"
-        android:layout_height="104dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:fontFamily="@font/brandontextregular"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                    android:layout_marginTop="20dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    android:fontFamily="@font/brandontextregular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/genderLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+                <TextView
+                    android:id="@+id/genderText"
+                    android:layout_width="95dp"
+                    android:layout_height="45dp"
+
+                    android:layout_marginTop="20dp"
+
+                    android:fontFamily="@font/brandontextbold"
+                    android:text="Gender"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/genderField"
+                    android:layout_width="107dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="20dp"
+
+                    android:fontFamily="@font/brandontextregular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/bioLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2">
+                <TextView
+                    android:id="@+id/bioText"
+                    android:layout_width="76dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/brandontextbold"
+                    android:text="Bio"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/bioField"
+                    android:layout_width="323dp"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/brandontextregular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/prefLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2">
+                <TextView
+                    android:id="@+id/prefText"
+                    android:layout_width="100dp"
+                    android:layout_height="31dp"
+
+                    android:layout_below="@+id/bioField"
+                    android:fontFamily="@font/brandontextbold"
+                    android:text="Preferences"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/prefField"
+                    android:layout_width="323dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/prefText"
+                    android:fontFamily="@font/brandontextregular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/registerbtn3"
+                android:layout_width="150dp"
+                android:layout_height="57dp"
+                android:layout_gravity="center_horizontal"
+
+                android:background="@drawable/button_black"
+                android:fontFamily="@font/brandontextbold"
+                android:onClick="goToEditProfile"
+                android:text="EDIT PROFILE"
+                android:textSize="18dp"
+                android:textColor="@color/colorLight"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

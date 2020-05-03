@@ -95,16 +95,17 @@ public class Home extends AppCompatActivity {
         }
 
         return false;
-
-
     }
 
 
     public void goToMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
+    }
 
-
+    public void goToEditProfile(View view) {
+        Intent intent = new Intent(this, EditProfile.class);
+        startActivity(intent);
     }
 
 }

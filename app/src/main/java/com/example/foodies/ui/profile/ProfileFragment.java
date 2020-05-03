@@ -1,5 +1,6 @@
 package com.example.foodies.ui.profile;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -20,7 +21,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.List;
 
@@ -51,41 +54,46 @@ public class ProfileFragment extends Fragment {
         final View root = inflater.inflate(R.layout.fragment_profile, container, false);
 
         DocumentReference docRef = db.collection("users").document(uid);
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if (documentSnapshot.exists()) {
-                    FoodiesUser foodiesUser = documentSnapshot.toObject(FoodiesUser.class);
+            public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    return;
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    FoodiesUser foodiesUser = snapshot.toObject(FoodiesUser.class);
                     if (foodiesUser != null) {
-                        TextView name = root.findViewById(R.id.textView3);
+                        TextView name = root.findViewById(R.id.nameText);
                         if (foodiesUser.getName() == null || foodiesUser.getName().isEmpty()) {
                             name.setText("Unknown");
                         } else {
                             name.setText(foodiesUser.getName());
                         }
 
-                        TextView location = root.findViewById(R.id.textView9);
+                        TextView location = root.findViewById(R.id.locationField);
                         if (foodiesUser.getLocation() == null || foodiesUser.getLocation().isEmpty()) {
                             location.setText("Unknown");
                         } else {
                             location.setText(foodiesUser.getLocation());
                         }
 
-                        TextView gender = root.findViewById(R.id.textView12);
+                        TextView gender = root.findViewById(R.id.genderField);
                         if (foodiesUser.getGender() == null || foodiesUser.getGender().isEmpty()) {
                             gender.setText("Unknown");
                         } else {
                             gender.setText(foodiesUser.getGender());
                         }
 
-                        TextView bio = root.findViewById(R.id.textView6);
+                        TextView bio = root.findViewById(R.id.bioField);
                         if (foodiesUser.getBio() == null || foodiesUser.getBio().isEmpty()) {
                             bio.setText("Unknown");
                         } else {
                             bio.setText(foodiesUser.getBio());
                         }
 
-                        TextView preferences = root.findViewById(R.id.textView11);
+                        TextView preferences = root.findViewById(R.id.prefField);
                         List<String> listPrefs = foodiesUser.getPreferences();
                         if (listPrefs == null || listPrefs.isEmpty()) {
                             preferences.setText("Unknown");
@@ -100,7 +108,69 @@ public class ProfileFragment extends Fragment {
                             preferences.setText(prefs.toString());
                         }
 
-                        ImageView imageView = root.findViewById(R.id.imageView);
+                        ImageView imageView = root.findViewById(R.id.profilePic);
+                        String imageUrl = foodiesUser.getImageUrl();
+
+                        if (imageUrl == null || imageUrl.isEmpty()) {
+                        } else {
+                            Glide.with(root).load(imageUrl).into(imageView);
+                        }
+
+
+                    }
+                }
+            }
+        });
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    FoodiesUser foodiesUser = documentSnapshot.toObject(FoodiesUser.class);
+                    if (foodiesUser != null) {
+                        TextView name = root.findViewById(R.id.nameText);
+                        if (foodiesUser.getName() == null || foodiesUser.getName().isEmpty()) {
+                            name.setText("Unknown");
+                        } else {
+                            name.setText(foodiesUser.getName());
+                        }
+
+                        TextView location = root.findViewById(R.id.locationField);
+                        if (foodiesUser.getLocation() == null || foodiesUser.getLocation().isEmpty()) {
+                            location.setText("Unknown");
+                        } else {
+                            location.setText(foodiesUser.getLocation());
+                        }
+
+                        TextView gender = root.findViewById(R.id.genderField);
+                        if (foodiesUser.getGender() == null || foodiesUser.getGender().isEmpty()) {
+                            gender.setText("Unknown");
+                        } else {
+                            gender.setText(foodiesUser.getGender());
+                        }
+
+                        TextView bio = root.findViewById(R.id.bioField);
+                        if (foodiesUser.getBio() == null || foodiesUser.getBio().isEmpty()) {
+                            bio.setText("Unknown");
+                        } else {
+                            bio.setText(foodiesUser.getBio());
+                        }
+
+                        TextView preferences = root.findViewById(R.id.prefField);
+                        List<String> listPrefs = foodiesUser.getPreferences();
+                        if (listPrefs == null || listPrefs.isEmpty()) {
+                            preferences.setText("Unknown");
+                        } else {
+                            StringBuilder prefs = new StringBuilder();
+                            for (int i = 0; i < listPrefs.size(); i++) {
+                                prefs.append(listPrefs.get(i));
+                                if (i < listPrefs.size() - 1) {
+                                    prefs.append(", ");
+                                }
+                            }
+                            preferences.setText(prefs.toString());
+                        }
+
+                        ImageView imageView = root.findViewById(R.id.profilePic);
                         String imageUrl = foodiesUser.getImageUrl();
 
                         if (imageUrl == null || imageUrl.isEmpty()) {
