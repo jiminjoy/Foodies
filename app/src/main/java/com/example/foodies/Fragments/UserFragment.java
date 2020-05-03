@@ -55,15 +55,8 @@ public class UserFragment extends Fragment {
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         // add some users
         String userid = firebaseUser.getUid();
-        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference();
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("id", userid);
-        hashMap.put("username", "tester");
-        hashMap.put("imageURL","default");
-        reference2.child("Users").push().setValue(hashMap);
-
+        System.out.println("the user id is "+ userid);
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Users");
-        //System.out.println(reference.getKey() + "and check it " + reference.toString());
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
