@@ -23,11 +23,7 @@
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile"  />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.foodies.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+
 
 <!--    <fragment-->
 <!--        android:id="@+id/navigation_map"-->
@@ -35,9 +31,5 @@
 <!--        android:label="@string/title_map"-->
 <!--        tools:layout="@layout/fragment_map" />-->
 
-    <fragment
-        android:id="@+id/navigation_signup"
-        android:name="com.example.foodies.ui.notifications.NotificationsFragment"
-        android:label="Signup"
-        tools:layout="@layout/fragment_notifications" />
+
 </navigation>
