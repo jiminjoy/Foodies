@@ -15,13 +15,13 @@ import com.smarteist.autoimageslider.SliderViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SliderAdapterExample extends
-        SliderViewAdapter<SliderAdapterExample.SliderAdapterVH> {
+public class FoodiesSliderAdapter extends
+        SliderViewAdapter<FoodiesSliderAdapter.SliderAdapterVH> {
 
     private Context context;
     private List<SliderItem> mSliderItems = new ArrayList<>();
 
-    public SliderAdapterExample(Context context) {
+    public FoodiesSliderAdapter(Context context) {
         this.context = context;
     }
 

@@ -1,4 +1,4 @@
-package com.example.foodies.ui;
+package com.example.foodies;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,6 +1,6 @@
 package com.example.foodies;
 
-class SliderItem {
+public class SliderItem {
     private String description;
     private String imageUrl;
 
