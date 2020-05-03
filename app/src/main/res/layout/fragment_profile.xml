@@ -12,6 +12,7 @@
         android:layout_marginTop="20dp"
         android:text="TextView"
         android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
         android:fontFamily="@font/brandontextregular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
@@ -26,6 +27,7 @@
         android:text="Gender"
         android:textSize="20dp"
         android:fontFamily="@font/brandontextbold"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toStartOf="@+id/textView12"
         app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +50,7 @@
         android:layout_marginTop="20dp"
         android:text="Name"
         android:fontFamily="@font/brandontextbold"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -61,6 +64,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:fontFamily="@font/brandontextregular"
+        android:textColor="@color/colorPrimaryDark"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -75,6 +79,7 @@
         android:text="Location"
         android:textSize="20dp"
         android:fontFamily="@font/brandontextbold"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -88,6 +93,7 @@
         android:text="Bio"
         android:textSize="16dp"
         android:fontFamily="@font/brandontextbold"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -99,6 +105,7 @@
         android:text="TextView"
         android:textSize="20dp"
         android:fontFamily="@font/brandontextregular"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toEndOf="@+id/textView7"
@@ -114,6 +121,7 @@
         android:text="Preferences"
         android:textSize="16dp"
         android:fontFamily="@font/brandontextbold"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -124,6 +132,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:fontFamily="@font/brandontextregular"
+        android:textColor="@color/colorPrimaryDark"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
