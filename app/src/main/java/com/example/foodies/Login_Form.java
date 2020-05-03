@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,8 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
 
 public class Login_Form extends AppCompatActivity {
     EditText Name ;
@@ -48,11 +45,11 @@ public class Login_Form extends AppCompatActivity {
         SignUp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                goToSinup();
+                goToSignUp();
             }
         });
     }
-    public void goToSinup() {
+    public void goToSignUp() {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }

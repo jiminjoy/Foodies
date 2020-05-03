@@ -1,7 +1,7 @@
 package com.example.foodies;
 
 import android.content.Intent;
-import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-//import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,21 +17,15 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import com.google.firebase.auth.AuthResult;
+
+import com.example.foodies.structures.Event;
+import com.example.foodies.ui.dummy.DummyContent;
+import com.example.foodies.ui.event.EventsListFragment;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.smarteist.autoimageslider.IndicatorAnimations;
-import com.smarteist.autoimageslider.SliderAnimations;
-import com.smarteist.autoimageslider.SliderView;
-import com.example.foodies.SliderItem;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements EventsListFragment.OnListFragmentInteractionListener {
 
 
     EditText Name ;
@@ -43,37 +36,19 @@ public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_message, R.id.navigation_profile)
+                R.id.navigation_home, R.id.navigation_message, R.id.navigation_events, R.id.navigation_profile)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-
-
-//        setContentView(R.layout.activity_login_form);
-//        getSupportActionBar().setTitle("Login Form");
-//
-//        Name =  (EditText)findViewById(R.id.userName);
-//        Password = (EditText)findViewById(R.id.userPassword);
-////        Info = (TextView)findViewById(R.id.attempt);
-//        Login = (Button)findViewById(R.id.Login);
-//
-//        Login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflator  = getMenuInflater();
@@ -88,7 +63,6 @@ public class Home extends AppCompatActivity {
         if (item.getItemId() == R.id.menuLogout) {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(this, Login_Form.class);
-//            sharedpreferences.edit().remove(MainActivity.usernameKey).apply();
             startActivity(intent);
             return true;
 
@@ -96,7 +70,6 @@ public class Home extends AppCompatActivity {
 
         return false;
     }
-
 
     public void goToMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
@@ -108,5 +81,9 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onListFragmentInteraction(Event event) {
+
+    }
 }
 

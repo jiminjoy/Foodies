@@ -12,6 +12,11 @@
         android:title="@string/messages" />
 
     <item
+        android:id="@+id/navigation_events"
+        android:icon="@drawable/ic_event_note_black_24dp"
+        android:title="@string/events" />
+
+    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_person_black_24dp"
         android:title="@string/profile" />
