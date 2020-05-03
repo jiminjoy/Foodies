@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -51,7 +52,6 @@ public class MainChat extends Fragment {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
          */
-
         profile_image = root.findViewById(R.id.profile_image);
         username = root.findViewById(R.id.username);
 
@@ -62,6 +62,9 @@ public class MainChat extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
+                if(user == null){
+                    user = new User(String.valueOf(username.getId()), username.getText().toString(), "default");
+                }
                 username.setText(user.getUsername());
                 if (user.getImageURL().equals("default")){
                     profile_image.setImageResource(R.mipmap.ic_launcher);
