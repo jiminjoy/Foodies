@@ -33,7 +33,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Message extends Fragment {
+public class Message extends AppCompatActivity {
 
     CircleImageView profile_image;
     TextView username;
@@ -68,7 +68,7 @@ public class Message extends Fragment {
 
         recyclerView = root.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
@@ -77,8 +77,8 @@ public class Message extends Fragment {
         btn_send = root.findViewById(R.id.btn_send);
         text_send = root.findViewById(R.id.text_send);
 
-        intent=  getActivity().getIntent();
-        final String userid = getActivity().getIntent().getStringExtra("userid");
+        intent=  getIntent();
+        final String userid = getIntent().getStringExtra("userid");
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
         btn_send.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +88,7 @@ public class Message extends Fragment {
                 if(!msg.equals("")){
                     sendMessage(fuser.getUid(), userid, msg);
                 } else {
-                    Toast.makeText(Message.this.getActivity(), "you can't send empty message", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Message.this, "you can't send empty message", Toast.LENGTH_SHORT).show();
                 }
                 text_send.setText("");
             }
@@ -149,7 +149,7 @@ public class Message extends Fragment {
                         mchat.add(chat);
                     }
 
-                    messageAdapter = new MessageAdapt(Message.this.getContext(),mchat,imageurl);
+                    messageAdapter = new MessageAdapt(Message.this,mchat,imageurl);
                     recyclerView.setAdapter(messageAdapter);
                 }
             }
