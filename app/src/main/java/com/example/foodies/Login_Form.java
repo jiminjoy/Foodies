@@ -67,8 +67,6 @@ public class Login_Form extends AppCompatActivity {
                 }
             });
         }
-
-
     }
 
     public void onClick(View v) {

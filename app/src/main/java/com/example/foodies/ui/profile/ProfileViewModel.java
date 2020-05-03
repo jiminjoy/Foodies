@@ -1,7 +1,5 @@
-package com.example.foodies.ui.ui.profile;
+package com.example.foodies.ui.profile;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class ProfileViewModel extends ViewModel {
