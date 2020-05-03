@@ -1,6 +1,7 @@
 package com.example.foodies.ui.event;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.foodies.R;
+import com.example.foodies.ViewEventActivity;
 import com.example.foodies.structures.Event;
 import com.example.foodies.ui.dummy.DummyContent;
 import com.example.foodies.ui.dummy.DummyContent.DummyItem;
@@ -86,7 +88,7 @@ public class EventsListFragment extends Fragment {
 
         adapter = new FirestoreRecyclerAdapter<Event, EventsHolder>(response) {
             @Override
-            public void onBindViewHolder(EventsHolder holder, int position, Event model) {
+            public void onBindViewHolder(EventsHolder holder, final int position, Event model) {
                 //progressBar.setVisibility(View.GONE);
                 holder.textName.setText(model.getName());
                 holder.textDescription.setText(model.getDescription());
@@ -104,8 +106,9 @@ public class EventsListFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //Snackbar.make(friendList, model.getName()+", "+model.getTitle()+" at "+model.getCompany(), Snackbar.LENGTH_LONG)
-                        //.setAction("Action", null).show();
+                        Intent intent = new Intent(getActivity().getBaseContext(), ViewEventActivity.class);
+                        intent.putExtra("event_id", getSnapshots().getSnapshot(position).getId());
+                        startActivity(intent);
                     }
                 });
             }

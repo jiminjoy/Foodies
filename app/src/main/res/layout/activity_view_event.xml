@@ -1,9 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ViewEventActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="27dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/eventPic"
+                    android:layout_width="131dp"
+                    android:layout_height="131dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@mipmap/defaultprofile"
+                    android:src="@mipmap/defaultprofile"
+                    />
+
+                <TextView
+                    android:id="@+id/nameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/eventPic"
+                    android:fontFamily="@font/brandontextbold"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Name"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/locationLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/locationText"
+                        android:layout_width="95dp"
+                        android:layout_height="45dp"
+
+
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/brandontextbold"
+                        android:text="Date"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/dateField"
+                        android:layout_width="140dp"
+                        android:layout_height="45dp"
+
+                        android:layout_marginTop="20dp"
+
+                        android:fontFamily="@font/brandontextregular"
+                        android:text="TextView"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:id="@+id/genderLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+                    <TextView
+                        android:id="@+id/genderText"
+                        android:layout_width="95dp"
+                        android:layout_height="45dp"
+
+                        android:layout_marginTop="20dp"
+
+                        android:fontFamily="@font/brandontextbold"
+                        android:text="Location"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/locationField"
+                        android:layout_width="140dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="20dp"
+
+                        android:fontFamily="@font/brandontextregular"
+                        android:text="TextView"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/organizerLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+                <TextView
+                    android:id="@+id/organizer"
+                    android:layout_width="95dp"
+                    android:layout_height="45dp"
+
+
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/brandontextbold"
+                    android:text="Organizer"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/organizerName"
+                    android:layout_width="140dp"
+                    android:layout_height="45dp"
+
+                    android:layout_marginTop="20dp"
+
+                    android:fontFamily="@font/brandontextregular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/bioLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/bioText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/brandontextbold"
+                    android:text="Description"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/descField"
+                    android:layout_width="323dp"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/brandontextregular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/prefLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/goingText"
+                    android:layout_width="168dp"
+                    android:layout_height="31dp"
+
+                    android:layout_below="@+id/descField"
+                    android:fontFamily="@font/brandontextbold"
+                    android:text="Users Attending"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/goingField"
+                    android:layout_width="323dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/goingText"
+                    android:fontFamily="@font/brandontextregular"
+                    android:text=""
+                    android:textColor="@color/colorPrimaryDark" />
+            </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/buttonLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <Button
+                android:id="@+id/registerbtn3"
+                android:layout_width="150dp"
+                android:layout_height="57dp"
+                android:layout_gravity="center_horizontal"
+
+                android:background="@drawable/button_black"
+                android:fontFamily="@font/brandontextbold"
+                android:onClick="joinEvent"
+                android:text="Join Event"
+                android:textSize="18dp"
+                android:clickable="false"
+                android:visibility="visible"
+                android:textColor="@color/colorLight" />
+
+            <Button
+                android:id="@+id/registerbtn4"
+                android:layout_width="150dp"
+                android:layout_height="57dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_horizontal"
+
+                android:background="@drawable/button_black"
+                android:fontFamily="@font/brandontextbold"
+                android:onClick="leaveEvent"
+                android:text="Leave Event"
+                android:textSize="18dp"
+                android:clickable="false"
+                android:visibility="invisible"
+                android:textColor="@color/colorLight"/>
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

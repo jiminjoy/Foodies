@@ -13,16 +13,18 @@ public class Event {
     private String imageUrl;
     private String name;
     private DocumentReference organizer;
+    private String location;
 
     public Event() {
 
     }
 
-    public Event(Timestamp date, String description, List<String> going, String imageUrl, String name, DocumentReference organizer) {
+    public Event(Timestamp date, String description, List<String> going, String imageUrl, String location, String name, DocumentReference organizer) {
         this.date = date;
         this.description = description;
         this.going = going;
         this.imageUrl = imageUrl;
+        this.location = location;
         this.name = name;
         this.organizer = organizer;
     }
@@ -49,5 +51,9 @@ public class Event {
 
     public DocumentReference getOrganizer() {
         return organizer;
+    }
+
+    public String getLocation() {
+        return location;
     }
 }
