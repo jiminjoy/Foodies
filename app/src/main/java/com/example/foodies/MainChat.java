@@ -2,8 +2,11 @@ package com.example.foodies;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,7 +33,7 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainChat extends AppCompatActivity {
+public class MainChat extends Fragment {
 
     CircleImageView profile_image;
     TextView username;
@@ -38,17 +41,19 @@ public class MainChat extends AppCompatActivity {
     FirebaseUser firebaseUser;
     DatabaseReference reference;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_chat);
+        View root = inflater.inflate(R.layout.activity_main_chat, container, false);
 
+        /*
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
+         */
 
-        profile_image = findViewById(R.id.profile_image);
-        username = findViewById(R.id.username);
+        profile_image = root.findViewById(R.id.profile_image);
+        username = root.findViewById(R.id.username);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
@@ -71,10 +76,11 @@ public class MainChat extends AppCompatActivity {
             }
         });
 
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
-        ViewPager viewPager = findViewById(R.id.view_pager);
+        TabLayout tabLayout = root.findViewById(R.id.tab_layout);
+        ViewPager viewPager = root.findViewById(R.id.view_pager);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        // TODO Checkout child?
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getParentFragmentManager());
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
         viewPagerAdapter.addFragment(new ChatsFragment(), "Users");
@@ -83,12 +89,7 @@ public class MainChat extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(viewPager);
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+        return root;
     }
 
     @Override
@@ -96,8 +97,7 @@ public class MainChat extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menuLogout:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainChat.this, Login_Form.class));
-                finish();
+                startActivity(new Intent(MainChat.this.getActivity(), Login_Form.class));
                 return true;
         }
         return false;

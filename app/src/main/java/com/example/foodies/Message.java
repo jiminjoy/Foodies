@@ -2,7 +2,9 @@ package com.example.foodies;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +33,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Message extends AppCompatActivity {
+public class Message extends Fragment {
 
     CircleImageView profile_image;
     TextView username;
@@ -48,34 +51,34 @@ public class Message extends AppCompatActivity {
 
     Intent intent;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
+        View root = inflater.inflate(R.layout.activity_message, container, false);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        /*Toolbar toolbar = root.findViewById(R.id.toolbar);
+        root.setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
 
-        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView = root.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        profile_image = findViewById(R.id.profile_image);
-        username = findViewById(R.id.username);
-        btn_send = findViewById(R.id.btn_send);
-        text_send = findViewById(R.id.text_send);
+        profile_image = root.findViewById(R.id.profile_image);
+        username = root.findViewById(R.id.username);
+        btn_send = root.findViewById(R.id.btn_send);
+        text_send = root.findViewById(R.id.text_send);
 
-        intent= getIntent();
-        final String userid = intent.getStringExtra("userid");
+        intent=  getActivity().getIntent();
+        final String userid = getActivity().getIntent().getStringExtra("userid");
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
         btn_send.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +88,7 @@ public class Message extends AppCompatActivity {
                 if(!msg.equals("")){
                     sendMessage(fuser.getUid(), userid, msg);
                 } else {
-                    Toast.makeText(Message.this, "you can't send empty message", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Message.this.getActivity(), "you can't send empty message", Toast.LENGTH_SHORT).show();
                 }
                 text_send.setText("");
             }
@@ -115,6 +118,7 @@ public class Message extends AppCompatActivity {
         });
 
 
+        return root;
     }
 
     private void sendMessage(String sender, String receiver, String message){
@@ -145,7 +149,7 @@ public class Message extends AppCompatActivity {
                         mchat.add(chat);
                     }
 
-                    messageAdapter = new MessageAdapt(Message.this,mchat,imageurl);
+                    messageAdapter = new MessageAdapt(Message.this.getContext(),mchat,imageurl);
                     recyclerView.setAdapter(messageAdapter);
                 }
             }

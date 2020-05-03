@@ -11,7 +11,7 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-    <activity
+    <fragment
         android:id="@+id/navigation_message"
         android:name="com.example.foodies.MainChat"
         android:label="@string/messages"

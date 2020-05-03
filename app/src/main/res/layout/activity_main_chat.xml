@@ -3,41 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".MainChat"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+   <com.google.android.material.appbar.AppBarLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="410dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary">
+       <androidx.appcompat.widget.Toolbar
+           android:id="@+id/toolbar"
+           android:layout_width="410dp"
+           android:layout_height="wrap_content"
+           android:background="@color/colorPrimary">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:id="@+id/profile_image"
-                android:src="@mipmap/ic_launcher"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/username"
-                android:layout_marginLeft="25dp"
-                android:text="Username"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginStart="25dp"
-                />
-
-
-        </androidx.appcompat.widget.Toolbar>
+           <de.hdodenhof.circleimageview.CircleImageView
+               android:layout_width="30dp"
+               android:layout_height="30dp"
+               android:id="@+id/profile_image"
+               android:src="@mipmap/ic_launcher"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/username"
+               android:layout_marginLeft="25dp"
+               android:text="Username"
+               android:textColor="#fff"
+               android:textStyle="bold"
+               android:layout_marginStart="25dp"
+               />
 
 
-    </com.google.android.material.appbar.AppBarLayout>
+       </androidx.appcompat.widget.Toolbar>
+
+
+   </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
