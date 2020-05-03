@@ -273,4 +273,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
+    public void clickFunction (View view){
+
+        finish();
+
+    }
+
 }
