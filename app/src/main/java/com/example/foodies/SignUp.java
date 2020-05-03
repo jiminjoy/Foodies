@@ -10,18 +10,24 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.foodies.structures.FoodiesUser;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity {
+
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private EditText Name ;
     private EditText Password;
@@ -50,9 +56,9 @@ public class SignUp extends AppCompatActivity {
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = Name.getText().toString();
+                final String name = Name.getText().toString();
                 String username = UserName.getText().toString();
-                String email = Email.getText().toString();
+                final String email = Email.getText().toString();
                 String password = Password.getText().toString();
                 String confirmPass = ConfirmPass.getText().toString();
                 if (email.isEmpty()) {
@@ -71,6 +77,7 @@ public class SignUp extends AppCompatActivity {
                     Password.setError("Please enter your password");
                     Password.requestFocus();
                 }
+                // TODO Can pick both male and female
                 else if(validate(email, password, confirmPass)){
                     Log.d("checking", "come????");
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
@@ -81,6 +88,16 @@ public class SignUp extends AppCompatActivity {
                                 Toast.makeText(SignUp.this,"Signup unsuccessful, Please Try Again: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 Log.d("checking,", task.getException().getMessage());
                             } else {
+                                final String uid = task.getResult().getUser().getUid();
+                                FoodiesUser foodiesUser = new FoodiesUser("", email, Male.isEnabled() ? "Male" : "Female", "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png", name, new ArrayList<String>());
+
+                                db.collection("users").document(uid).set(foodiesUser).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d("checking", "Failed to store user in firestore.", e);
+                                    }
+                                });
+
                                 startActivity(new Intent(SignUp.this, Home.class));
                             }
                         }
