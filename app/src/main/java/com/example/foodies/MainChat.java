@@ -20,6 +20,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.example.foodies.Fragments.ChatsFragment;
+import com.example.foodies.Fragments.UserFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -85,7 +86,7 @@ public class MainChat extends Fragment {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getParentFragmentManager());
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
-        viewPagerAdapter.addFragment(new ChatsFragment(), "Users");
+        viewPagerAdapter.addFragment(new UserFragment(), "Users");
 
         viewPager.setAdapter(viewPagerAdapter);
 
