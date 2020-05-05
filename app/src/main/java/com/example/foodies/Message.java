@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,7 +34,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Message extends AppCompatActivity {
+public class Message extends FragmentActivity {
 
     CircleImageView profile_image;
     TextView username;
@@ -51,11 +52,10 @@ public class Message extends AppCompatActivity {
 
     Intent intent;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        View root = inflater.inflate(R.layout.activity_message, container, false);
+    public void onCreate(Bundle savedInstanceState) {
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_message);
         /*Toolbar toolbar = root.findViewById(R.id.toolbar);
         root.setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
@@ -66,18 +66,18 @@ public class Message extends AppCompatActivity {
             }
         });*/
 
-        recyclerView = root.findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        profile_image = root.findViewById(R.id.profile_image);
-        username = root.findViewById(R.id.username);
-        btn_send = root.findViewById(R.id.btn_send);
-        text_send = root.findViewById(R.id.text_send);
+        profile_image = findViewById(R.id.profile_image);
+        username = findViewById(R.id.username);
+        btn_send = findViewById(R.id.btn_send);
+        text_send = findViewById(R.id.text_send);
 
-        intent=  getIntent();
+        intent= getIntent();
         final String userid = getIntent().getStringExtra("userid");
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -88,7 +88,7 @@ public class Message extends AppCompatActivity {
                 if(!msg.equals("")){
                     sendMessage(fuser.getUid(), userid, msg);
                 } else {
-                    Toast.makeText(Message.this, "you can't send empty message", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "you can't send empty message", Toast.LENGTH_SHORT).show();
                 }
                 text_send.setText("");
             }
@@ -101,14 +101,15 @@ public class Message extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                User user = dataSnapshot.getValue(User.class);
-               username.setText(user.getUsername());
-               if (user.getImageURL().equals("default")){
-                   profile_image.setImageResource(R.mipmap.ic_launcher);
-               } else {
-                   Glide.with(Message.this).load(user.getImageURL()).into(profile_image);
+               if (user != null){
+                   username.setText(user.getUsername());
+                   if (user.getImageURL().equals("default")){
+                       profile_image.setImageResource(R.mipmap.ic_launcher);
+                   } else {
+                       Glide.with(Message.this).load(user.getImageURL()).into(profile_image);
+                   }
                }
-
-               readMessages(fuser.getUid(), userid, user.getImageURL());
+               readMessages(fuser.getUid(), userid, "default");
             }
 
             @Override
@@ -116,9 +117,6 @@ public class Message extends AppCompatActivity {
 
             }
         });
-
-
-        return root;
     }
 
     private void sendMessage(String sender, String receiver, String message){
@@ -149,7 +147,7 @@ public class Message extends AppCompatActivity {
                         mchat.add(chat);
                     }
 
-                    messageAdapter = new MessageAdapt(Message.this,mchat,imageurl);
+                    messageAdapter = new MessageAdapt(getApplicationContext(),mchat,imageurl);
                     recyclerView.setAdapter(messageAdapter);
                 }
             }
