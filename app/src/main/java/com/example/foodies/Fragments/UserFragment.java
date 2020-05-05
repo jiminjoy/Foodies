@@ -66,12 +66,10 @@ public class UserFragment extends Fragment {
                     User user = snapshot.getValue(User.class);
 
                     assert user != null;
-                    assert firebaseUser != null;
                     if (!user.getId().equals(firebaseUser.getUid())){
                         mUsers.add(user);
                     }
                 }
-
                 userAdapter = new UserAdapter(getContext(), mUsers);
                 recyclerView.setAdapter(userAdapter);
 
