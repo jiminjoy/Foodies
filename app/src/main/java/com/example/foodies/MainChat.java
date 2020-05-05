@@ -42,6 +42,7 @@ public class MainChat extends Fragment {
     FirebaseUser firebaseUser;
     DatabaseReference reference;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +95,8 @@ public class MainChat extends Fragment {
         return root;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -104,6 +107,7 @@ public class MainChat extends Fragment {
         }
         return false;
     }
+
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private ArrayList<Fragment> fragments;
