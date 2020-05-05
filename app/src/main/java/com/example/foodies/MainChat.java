@@ -82,7 +82,6 @@ public class MainChat extends Fragment {
         TabLayout tabLayout = root.findViewById(R.id.tab_layout);
         ViewPager viewPager = root.findViewById(R.id.view_pager);
 
-        // TODO Checkout child?
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getParentFragmentManager());
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");

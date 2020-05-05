@@ -17,12 +17,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity {
@@ -97,6 +100,16 @@ public class SignUp extends AppCompatActivity {
                                         Log.d("checking", "Failed to store user in firestore.", e);
                                     }
                                 });
+
+                                FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                                String userid = firebaseUser.getUid();
+                                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
+
+                                HashMap<String, String> hashMap = new HashMap<>();
+                                hashMap.put("id", userid);
+                                hashMap.put("username", UserName.getText().toString());
+                                hashMap.put("imageURL", "default");
+                                reference.setValue(hashMap);
 
                                 startActivity(new Intent(SignUp.this, Home.class));
                             }
